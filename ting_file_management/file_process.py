@@ -49,6 +49,8 @@ def remove(instance):
 def file_metadata(instance, position):
     """Aqui irá sua implementação"""
     try:
+        # Caso a posição seja válida, as informações relacionadas
+        # ao arquivo devem ser mostradas via stdout
         print(instance.search(position), file=sys.stdout)
         # imprime no console o valor encontrado na
         # posição chamada no metodo instance.search(position)
