@@ -1,4 +1,5 @@
 from ting_file_management.file_management import txt_importer
+import sys
 
 
 def process(path_file, instance):
@@ -31,6 +32,18 @@ def process(path_file, instance):
 
 def remove(instance):
     """Aqui irá sua implementação"""
+    try:
+        path_file = instance.search(0)["nome_do_arquivo"]
+        instance.dequeue()
+        #  remove o 1o elemento da fila.
+        print(f"Arquivo {path_file} removido com sucesso", file=sys.stdout)
+        # Em caso de sucesso de remoção, deve ser emitida a mensagem
+        # Arquivo {path_file} removido com sucesso via stdout,
+        # em que {path_file} é o caminho do arquivo.
+    except IndexError:
+        print("Não há elementos", file=sys.stdout)
+        # Caso não existam arquivos na fila,
+        # a função deve apenas emitir a mensagem Não há elementos via stdout;
 
 
 def file_metadata(instance, position):
